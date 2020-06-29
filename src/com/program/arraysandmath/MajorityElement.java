@@ -5,6 +5,8 @@ can solve it taking HashMap but it takes O(n) space as well.
 
 Another approach : remove any 2 distinct elements and at the end we will get the remaining element as ME.
 Space complexity : O(1)
+
+Algorithm : Boyer-Moore majority voting
  */
 public class MajorityElement {
 
