@@ -1,4 +1,4 @@
-package Searching;
+package com.program.Searching;
 /*
 Given an integer A. Compute and return the square root of A.
 If A is not a perfect square, return floor(sqrt(A)).

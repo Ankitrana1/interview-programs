@@ -1,4 +1,4 @@
-package Searching;
+package com.program.Searching;
 /*
 Given a sorted array of integers A of size N and an integer B.
 Array A is rotated at some pivot unknown to you beforehand.

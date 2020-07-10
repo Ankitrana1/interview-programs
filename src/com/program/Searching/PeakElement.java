@@ -1,4 +1,4 @@
-package Searching;
+package com.program.Searching;
 /*
 Given an array of integers A, find and return the peak element in it.
 An array element is peak if it is NOT smaller than its neighbors.
