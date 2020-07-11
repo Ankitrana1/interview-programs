@@ -6,21 +6,34 @@ DO NOT USE SQRT FUNCTION FROM STANDARD LIBRARY.
  */
 public class SquareRoot {
 
-    private static int findSquareRoot(int num, int rangeStart, int rangeEnd){
-        int mid = rangeStart + (rangeEnd-rangeStart)/2;
-        if (mid*mid == num)
-            return mid;
+    private static int findRoot(int num, long start, long end){
+        long mid = (start + end)/2;
+        if(mid*mid == num)
+            return (int)mid;
         else if(mid*mid < num && (mid+1)*(mid+1) > num)
-            return mid;
+            return (int)mid;
         else if(mid*mid > num)
-            return findSquareRoot(num, rangeStart, mid-1);
+            return findRoot(num, start, mid-1);
         else
-            return findSquareRoot(num, mid+1, rangeEnd);
+            return findRoot(num, mid+1, end);
+    }
+
+    private static int findSquareRoot(int num){
+        int res = -1;
+        if(num == 0 || num == 1)
+            return num;
+        for(long i=1; i<=num; i*=2){
+            if(i*i > num) {
+                res = findRoot(num, i/2, i);
+            }
+        }
+        return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(findSquareRoot(625, 1, 625/2));
-        System.out.println(findSquareRoot(50, 1, 50/2));
-        System.out.println(findSquareRoot(196, 1, 196/2));
+        System.out.println(findSquareRoot(625));
+        System.out.println(findSquareRoot(50));
+        System.out.println(findSquareRoot(4));
+        System.out.println(findSquareRoot(2147483647));
     }
 }
