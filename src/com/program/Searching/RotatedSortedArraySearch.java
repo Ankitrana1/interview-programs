@@ -16,7 +16,7 @@ public class RotatedSortedArraySearch {
         int length = arr.length-1;
         int mid = low + (high-low)/2;
         //if pivot not found then return -1
-        if (low == 0 && high == 0)
+        if (low <= 0 && high <= 0)
             return -1;
         //To find the pivot make decision based on last element of the array.
         //As every sorted array has the highest element at the end.
@@ -33,7 +33,7 @@ public class RotatedSortedArraySearch {
         int mid = low + (high-low)/2;
         if(arr[mid] == num)
             return mid;
-        else if(low == high)
+        else if(low >= high)
             return -1;
         else if(arr[mid] > num)
             return findElement(arr,low,mid-1);
@@ -60,6 +60,8 @@ public class RotatedSortedArraySearch {
     public static void main(String[] args) {
         int[] arr = {10, 20,30,1,3,5,7,9};
         int[] arr2 = { 1,2,3,4,5,6,7,8};
+        int[] arr3 = {1,7,67,133,178};
+        System.out.println("Index : "+rotatedArraySearch(arr3, 1));
         System.out.println("Index : "+rotatedArraySearch(arr, 9));
         System.out.println("Index : "+rotatedArraySearch(arr, 3));
         System.out.println("Index : "+rotatedArraySearch(arr, 10));
