@@ -8,13 +8,13 @@ public class PeakElement {
     private static int findPeakElement(int[] arr, int low, int high){
         int mid = low + (high - low)/2;
         if(mid == 0){
-            if(arr[mid] > arr[mid+1])
+            if(arr[mid] >= arr[mid+1])
                 return arr[mid];
         } else if(mid == arr.length-1){
-            if(arr[mid] > arr[mid-1])
+            if(arr[mid] >= arr[mid-1])
                 return arr[mid];
         }else{
-            if(arr[mid] > arr[mid-1] && arr[mid] > arr[mid+1])
+            if(arr[mid] >= arr[mid-1] && arr[mid] >= arr[mid+1])
                 return arr[mid];
             else
                 if(arr[mid] > arr[mid-1])
