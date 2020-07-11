@@ -12,7 +12,7 @@ public class MaximiseMinimalDistance {
 
     private static int findMinimalDistance(int[] arr, int n){
         Arrays.sort(arr);
-        int min = arr[0], max = arr[arr.length-1];
+        int min = 0, max = arr[arr.length-1];
 
         int mid, current=0, last=0, total;
         total = n-1;
