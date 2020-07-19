@@ -1,27 +1,23 @@
 package com.program.backtracking;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 public class NQueens {
-        static void printSolution(int board[][], ArrayList<ArrayList<String>> res)
+        static void printSolution(int[][] board, ArrayList<ArrayList<String>> res)
         {
-            res.add(new ArrayList<String>());
-            for(int i = 0;i<board.length; i++)
-            {
+            res.add(new ArrayList<>());
+            for (int[] ints : board) {
                 String temp = "";
-                for(int j = 0;j<board.length;j++)
-                {
-                    if(board[i][j] == 1)
-                        temp += "Q";
+                for (int j = 0; j < board.length; j++) {
+                    if (ints[j] == 1)
+                        temp = temp.concat("Q");
                     else
-                        temp += ".";
+                        temp = temp.concat(".");
                 }
-                res.get(res.size()-1).add(temp);
+                res.get(res.size() - 1).add(temp);
             }
         }
-        static void solveNQUtil(int board[][], int col, ArrayList<ArrayList<String>> res)
+        static void solveNQUtil(int[][] board, int col, ArrayList<ArrayList<String>> res)
         {
             if(col == board.length)
             {
@@ -37,9 +33,8 @@ public class NQueens {
                     board[i][col] = 0;
                 }
             }
-            return;
         }
-        static boolean isSafe(int board[][], int row, int col)
+        static boolean isSafe(int[][] board, int row, int col)
         {
             int i, j;
             for(i = 0;i<col;i++)
@@ -55,8 +50,8 @@ public class NQueens {
             return true;
         }
         private static ArrayList<ArrayList<String>> solveNQueens(int a) {
-            int board[][] = new int[a][a];
-            ArrayList<ArrayList<String>> ans = new ArrayList<ArrayList<String>>();
+            int[][] board = new int[a][a];
+            ArrayList<ArrayList<String>> ans = new ArrayList<>();
             solveNQUtil(board, 0, ans);
             return ans;
         }
